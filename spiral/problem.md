@@ -29,3 +29,5 @@ input = 8
 23 44 43 42 41 40 39 14
 22 21 20 19 18 17 16 15
 ```
+
+Source: [facebook careers](https://www.facebook.com/careers/life/sample_interview_questions)

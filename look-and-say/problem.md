@@ -1,0 +1,18 @@
+# Look and Say
+
+Implement a function that outputs the Look and Say sequence: 
+
+```
+1 
+11
+21
+1211
+111221
+312211
+13112221
+1113213211
+31131211131221
+13211311123113112211
+```
+
+Source: [facebook careers](https://www.facebook.com/careers/life/sample_interview_questions)
