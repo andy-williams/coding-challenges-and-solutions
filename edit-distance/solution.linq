@@ -8,12 +8,12 @@
 
 void Main()
 {
-	OneEditApart("cat", "rats").Dump();
+	OneEditApart("rataa", "rastaa").Dump();
 	
 	Console.WriteLine("##FALSE##");
 	OneEditApart("cat", "dog").Dump();
 	OneEditApart("cat", "cace").Dump();
-	OneEditApart("cat", "rats").Dump();
+	OneEditApart("cas", "rats").Dump();
 	OneEditApart("cat", "act").Dump();
 	
 	Console.WriteLine("##TRUE##");
@@ -45,8 +45,7 @@ static bool OneEditApart(string s1, string s2)
 	if(baseString.Length - otherString.Length > 1)
 		return false;
 		
-	var foundEdit = false;
-	var forgivenEdit = false;
+	var foundEdit = baseString.Length - otherString.Length > 0;
 	var j = 0;
 	for(var i = 0; i < baseString.Length; i++)
 	{
@@ -55,10 +54,8 @@ static bool OneEditApart(string s1, string s2)
 		
 		if(c1 != c2)
 		{
-			if(foundEdit && !forgivenEdit && baseString.Length != otherString.Length)
-			{
-				forgivenEdit = true;
-				
+			if(baseString.Length != otherString.Length)
+			{				
 				if(i == 0)
 				{
 					if(baseString[i] != otherString[j + 1] && baseString[i+1] != otherString[j])
