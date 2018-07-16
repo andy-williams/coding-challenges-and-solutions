@@ -55,32 +55,24 @@ static int[][] Spiral(int n)
 
 		// top left -> top right
 		for(var i = lo; i < n - hi; i++)
-		{
 			result[lo][i] = count++;
-		}
 		
 		lo++;
 		
 		// top right -> bottom right
 		for(var i = lo; i < n - hi; i++)
-		{
 			result[i][n -1 - hi] = count++;
-		}
 
 		
 		// bottom right -> bottom left
 		for(var i = n - lo - 1; i >= lo - 1; i--)
-		{
 			result[n - lo][i] = count++;
-		}
 		
 		hi++;
 		
 		// bottom left -> top left
 		for(var i = n - lo - 1; i > hi - 1; i--)
-		{
-			result[i][lo - 1] = count++;
-		}		
+			result[i][lo - 1] = count++;		
 	}
 	
 	return result;
