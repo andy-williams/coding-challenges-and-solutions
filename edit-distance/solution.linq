@@ -8,14 +8,21 @@
 
 void Main()
 {
+	OneEditApart("cat", "rats").Dump();
+	
+	Console.WriteLine("##FALSE##");
 	OneEditApart("cat", "dog").Dump();
+	OneEditApart("cat", "cace").Dump();
+	OneEditApart("cat", "rats").Dump();
+	OneEditApart("cat", "act").Dump();
+	
+	Console.WriteLine("##TRUE##");
+	OneEditApart("cat", "cact").Dump();
 	OneEditApart("cat", "cats").Dump();
 	OneEditApart("cat", "cut").Dump();
 	OneEditApart("cat", "cast").Dump();
 	OneEditApart("cat", "at").Dump();
-	OneEditApart("cat", "act").Dump();
-	OneEditApart("cat", "cact").Dump();
-	OneEditApart("cat", "cact").Dump();
+	
 }
 
 static bool OneEditApart(string s1, string s2)
@@ -39,6 +46,7 @@ static bool OneEditApart(string s1, string s2)
 		return false;
 		
 	var foundEdit = false;
+	var forgivenEdit = false;
 	var j = 0;
 	for(var i = 0; i < baseString.Length; i++)
 	{
@@ -47,9 +55,39 @@ static bool OneEditApart(string s1, string s2)
 		
 		if(c1 != c2)
 		{
-			if(!foundEdit || baseString.Length == otherString.Length)
+			if(foundEdit && !forgivenEdit && baseString.Length != otherString.Length)
 			{
-				if(foundEdit)
+				forgivenEdit = true;
+				
+				if(i == 0)
+				{
+					if(baseString[i] != otherString[j + 1] && baseString[i+1] != otherString[j])
+					{
+						return false;
+					}
+				}
+				else if(i == baseString.Length - 1)
+				{
+					if (baseString[i] != otherString[j - 1]
+						&& baseString[i - 1] != otherString[j])
+					{
+						return false;
+					}
+				}
+				else
+				{
+					if (baseString[i] != otherString[j > otherString.Length - 1 ? j : j - 1] 
+						&& baseString[i + 1] != otherString[j]
+						&& baseString[i] != otherString[j - 1]
+						&& baseString[i-1] != otherString[j])
+					{
+						return false;
+					}
+				}
+			}
+			else
+			{
+				if (foundEdit)
 					return false;
 				foundEdit = true;
 			}
